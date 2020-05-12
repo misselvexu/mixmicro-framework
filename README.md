@@ -1,6 +1,6 @@
-## Mixmicro OSS Parent
+## Mixmicro Framework
 
-> OSS Parent Pom Defined .
+> Mixmicro Framework Core.
 
 ### Overview
 
@@ -22,7 +22,7 @@ but if you want to try out the latest and greatest,
 *First* : git clone source from gitlab
  
 ```bash
-$ git clone ssh://git@git.hgj.net:8022/mixmicro/mixmicro-oss.git
+$ git clone ssh://git@git.hgj.net:8022/mixmicro/mixmicro-framework.git
 ```
 
 *Second* : build
@@ -39,13 +39,13 @@ If you want to build with the regular `mvn` command, you will need [Maven v3.5.0
 #### How to Use
 
 ```xml
-<pom>
-   <parent>
+<dependencyManagement>
+    <dependencies>
         <groupId>xyz.vopen.framework</groupId>
-        <artifactId>oss-parent</artifactId>
+        <artifactId>mixmicro-dependencies</artifactId>
         <version>2020.04.RELEASE</version>
-    </parent>
-</pom>
+    </dependencies>
+</dependencyManagement>
 
 ```
 
