@@ -5,6 +5,7 @@ import org.springframework.util.StringUtils;
 import xyz.vopen.framework.web.request.RequestWrapper;
 import xyz.vopen.framework.web.response.ResponseWrapper;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -174,5 +175,20 @@ public class HttpRequestUtil {
   public static String getUri(HttpServletRequest request) {
     Assert.notNull(request, "request instance is null.");
     return request.getRequestURI();
+  }
+
+  /**
+   * 判断是否为上传文件类型的Request
+   *
+   * @param request {@link ServletRequest}
+   * @return 返回true时表示为上传文件类型Request
+   */
+  public static boolean isMultipart(ServletRequest request) {
+    String contentType = request.getContentType();
+    if (contentType == null) {
+      return false;
+    } else {
+      return contentType.toLowerCase().startsWith("multipart/");
+    }
   }
 }
